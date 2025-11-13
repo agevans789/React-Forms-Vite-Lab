@@ -12,12 +12,19 @@ function ShoppingList({ items }) {
   };
 
   const itemsToDisplay = items.filter((item) => {
-    if (selectedCategory === "All") return true;
-
+    if (selectedCategory === "All") {
+     return true;
+    }; 
     return item.category === selectedCategory;
+  }).filter((item) => {
+    if (!search) {
+      return true;
+    };
+    return new RegExp(search, "i").test(item.name);
   });
 
   function handleSearchChange(event) {
+    console.log(`Search input change: ${event.target.value}`)
     setSearch(event.target.value)
   };
 

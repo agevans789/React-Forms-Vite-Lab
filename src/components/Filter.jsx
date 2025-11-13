@@ -1,5 +1,6 @@
 import React from "react";
 
+// filter for full and partial matches 
 function Filter({ onCategoryChange, onSearchChange }) {
   return (
     <div className="Filter">
